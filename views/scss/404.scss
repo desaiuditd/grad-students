@@ -1,0 +1,38 @@
+._404 {
+  .wrap {
+      top: 40%;
+      left: 50%;
+      width: 400px;
+      height: 200px;
+      margin-left: -200px;
+      margin-top: -100px;
+      position: absolute;
+  }
+
+  h1 {
+      color: white;
+      text-align: center;
+  }
+
+  pre {
+    background-color: transparent;
+    border: none;
+  }
+
+  code {
+    color: white;
+  }
+
+  span {
+    &.blue {
+      color: #48beef;
+    }
+    &.comment {
+      color: #7f8c8d;
+    }
+    &.load {
+      color: #f39c12;
+    }
+  }
+
+}

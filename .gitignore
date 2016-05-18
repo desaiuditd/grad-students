@@ -36,3 +36,4 @@ build/
 .rvmrc
 
 .idea
+.sass-cache

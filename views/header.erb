@@ -6,12 +6,10 @@
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-  <% if not_found? %>
-      <link rel="stylesheet" href="/css/404.css" media="screen">
-  <% else %>
-      <link rel="stylesheet" href="/css/darkly.bootstrap.min.css" media="screen">
-      <script src="https://use.fontawesome.com/953b3c04d0.js"></script>
-  <% end %>
+  <link rel="stylesheet" href="/css/darkly.bootstrap.min.css">
+  <link rel="stylesheet" href="/css/404.css" media="screen">
+
+  <script src="https://use.fontawesome.com/953b3c04d0.js"></script>
 
 </head>
 <body>
@@ -25,7 +23,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Grad Students</a>
+        <a class="navbar-brand" href="/"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Grad Students</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
