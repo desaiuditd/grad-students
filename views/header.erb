@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Grad Students</title>
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+  <% if not_found? %>
+      <link rel="stylesheet" href="/css/404.css" media="screen">
+  <% else %>
+      <link rel="stylesheet" href="/css/darkly.bootstrap.min.css" media="screen">
+      <script src="https://use.fontawesome.com/953b3c04d0.js"></script>
+  <% end %>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Grad Students</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+        </ul>
+      </div>
+    </div>
+  </nav>
