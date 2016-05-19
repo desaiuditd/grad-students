@@ -7,14 +7,14 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   <link rel="stylesheet" href="/css/darkly.bootstrap.min.css">
-  <link rel="stylesheet" href="/css/404.css" media="screen">
+  <link rel="stylesheet" href="/css/app.css" media="screen">
 
   <script src="https://use.fontawesome.com/953b3c04d0.js"></script>
 
 </head>
 <body>
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -29,6 +29,15 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <ul class="nav navbar-nav">
         </ul>
+        <div class="login-btn navbar-right">
+          <%
+            auth_url = if session[:current_user_auth].nil? then '/login' else '/logout' end
+            auth_label = if session[:current_user_auth].nil? then 'Login' else 'Logout' end
+          %>
+          <a href="<%= auth_url %>" class="btn btn-primary navbar-btn btn-sm"><%= auth_label %></a>
+        </div>
       </div>
     </div>
   </nav>
+
+  <div class="container">
