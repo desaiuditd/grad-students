@@ -18,20 +18,47 @@ class Student
   property :degree, String
   property :major, String
   property :graduation_year, Integer
-  property :GPA, Float
+  property :gpa, Float
 
 end
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
 DataMapper.auto_upgrade!
 
 get '/students' do
   @students = Student.all
-  puts "yoyo"
-  puts @students
-  puts "yoyo"
   erb :students
+end
+
+post '/students' do
+  @student = Student.create(params[:student])
+  redirect to('/students')
+end
+
+get '/students/new' do
+  @student = Student.new
+  erb :new_student
+end
+
+get '/students/:id' do
+  @student = Student.get(params[:id])
+  erb :show_student
+end
+
+put '/students/:id' do
+  @student = Student.get(params[:id])
+  @student.update(params[:student])
+  redirect to('/students/'+params[:id])
+end
+
+delete '/students/:id' do
+  Student.get(params[:id]).destroy
+  redirect to('/students')
+end
+
+get '/students/:id/edit' do
+  @student = Student.get(params[:id])
+  erb :edit_student
 end
 

@@ -2,15 +2,55 @@
 
 <%= erb :header %>
 
-<h1>Students</h1>
+<h1 class="page-header">Students</h1>
 
-<a class="btn btn-primary" href="/student/new">Add Student</a>
+<a class="btn btn-primary" href="/students/new"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Student</a>
 
-<div class="students-container">
-<% if @students.any? %>
-<% else %>
-    <p class="bg-warning">No students have been enrolled yet!</p>
-<% end %>
+<div class="content-container students">
+  <% if @students.any? %>
+    <table class="table table-responsive table-striped table-hover table-bordered">
+      <thead>
+        <th class="text-info">#</th>
+        <th class="text-info">Name</th>
+        <th class="text-info">Degree</th>
+        <th class="text-info">Major</th>
+        <th class="text-info">Graduation Year</th>
+        <th class="text-info">GPA</th>
+        <th class="text-info"><i class="fa fa-tasks" aria-hidden="true"></i></th>
+      </thead>
+      <tfoot>
+        <th class="text-info">#</th>
+        <th class="text-info">Name</th>
+        <th class="text-info">Degree</th>
+        <th class="text-info">Major</th>
+        <th class="text-info">Graduation Year</th>
+        <th class="text-info">GPA</th>
+        <th class="text-info"><i class="fa fa-tasks" aria-hidden="true"></i></th>
+      </tfoot>
+      <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.id %></td>
+            <td><%= student.name %></td>
+            <td><%= student.degree %></td>
+            <td><%= student.major %></td>
+            <td><%= student.graduation_year %></td>
+            <td><%= student.gpa %></td>
+            <td>
+              <a href="/students/<%= student.id %>" class="btn btn-xs btn-info"><i class="fa fa-info" aria-hidden="true"></i></a>
+              <a href="/students/<%= student.id %>/edit" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <form class="form-inline" method="post" action="/students/<%= student.id %>">
+                <input type="hidden" name="_method" value="DELETE" />
+                <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              </form>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+      <p class="bg-warning">No students have been enrolled yet!</p>
+  <% end %>
 </div>
 
 <%= erb :footer %>

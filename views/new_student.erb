@@ -1,0 +1,19 @@
+<!-- New Student ERB Template -->
+
+<%= erb :header %>
+
+<h1 class="page-header">New Student</h1>
+
+<div class="content-container">
+  <form data-toggle="validator" class="form-horizontal" method="post" action="/students">
+    <%= erb :student_form %>
+    <div class="form-group">
+      <label class="col-sm-4 control-label"> </label>
+      <div class="col-sm-8">
+        <button type="submit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<%= erb :footer %>

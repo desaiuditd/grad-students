@@ -10,6 +10,27 @@ p {
   padding: 15px;
 }
 
-.students-container {
-  margin-top: 30px;
+.content-container {
+  margin: 30px auto 0 auto;
+  width: 50%;
+
+  &.students {
+    width: 100%;
+  }
+
+  &.about {
+    width: 56%;
+  }
+
+  &.contact {
+    width: 42%;
+  }
+}
+
+.page-header {
+  text-align: center;
+}
+
+.form-inline {
+  display: inline-block;
 }

@@ -1,0 +1,22 @@
+<!-- Show Student ERB Template -->
+
+<%= erb :header %>
+
+<h1 class="page-header"><%= @student.name %></h1>
+
+<div class="content-container">
+  <form data-toggle="validator" class="form-horizontal" method="post" action="/students/<%= @student.id %>">
+    <input type="hidden" name="_method" value="PUT" />
+    <% @mode = 'edit' %>
+    <%= erb :student_form %>
+    <div class="form-group">
+      <label class="col-sm-4 control-label"> </label>
+      <div class="col-sm-8">
+        <a href="/students" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+        <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<%= erb :footer %>

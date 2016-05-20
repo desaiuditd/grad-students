@@ -1,0 +1,79 @@
+<!-- Student Form ERB Template -->
+
+<div class="form-group has-feedback">
+  <label for="name" class="col-sm-4 control-label">Name</label>
+  <div class="col-sm-8">
+    <% if @mode == 'view' %>
+        <label for="name" class="control-label"><%= @student.name %></label>
+    <% else %>
+      <input type="text" name="student[name]" class="form-control" id="name" placeholder="Name" value="<%= @student.name %>" required />
+      <div class="help-block with-errors"></div>
+    <% end %>
+  </div>
+</div>
+<div class="form-group has-feedback">
+  <label for="degree" class="col-sm-4 control-label">Degree</label>
+  <div class="col-sm-8">
+    <% if @mode == 'view' %>
+        <label for="degree" class="control-label"><%= @student.degree %></label>
+    <% else %>
+      <select name="student[degree]" id="degree" class="form-control" required>
+        <option value="">Select Degree</option>
+        <option <%= @student.degree == "Undergraduate Degree" ? 'selected="selected"' : '' %> value="Undergraduate Degree">Undergraduate Degree</option>
+        <option <%= @student.degree == "Associate's Degree" ? 'selected="selected"' : '' %> value="Associate's Degree">Associate's Degree</option>
+        <option <%= @student.degree == "Bachelor's Degree" ? 'selected="selected"' : '' %> value="Bachelor's Degree">Bachelor's Degree</option>
+        <option <%= @student.degree == "Graduate Degree" ? 'selected="selected"' : '' %> value="Graduate Degree">Graduate Degree</option>
+        <option <%= @student.degree == "Doctoral Degree" ? 'selected="selected"' : '' %> value="Doctoral Degree">Doctoral Degree</option>
+        <option <%= @student.degree == "Professional Degree" ? 'selected="selected"' : '' %> value="Professional Degree">Professional Degree</option>
+      </select>
+      <div class="help-block with-errors"></div>
+    <% end %>
+  </div>
+</div>
+<div class="form-group has-feedback">
+  <label for="major" class="col-sm-4 control-label">Major</label>
+  <div class="col-sm-8">
+    <% if @mode == 'view' %>
+        <label for="major" class="control-label"><%= @student.major %></label>
+    <% else %>
+      <select name="student[major]" id="major" class="form-control" required>
+        <option value="">Select Major</option>
+        <option <%= @student.major == "Accounting" ? 'selected="selected"' : '' %> value="Accounting">Accounting</option>
+        <option <%= @student.major == "Applied Mathematics" ? 'selected="selected"' : '' %> value="Applied Mathematics">Applied Mathematics</option>
+        <option <%= @student.major == "Art History" ? 'selected="selected"' : '' %> value="Art History">Art History</option>
+        <option <%= @student.major == "Biology" ? 'selected="selected"' : '' %> value="Biology">Biology</option>
+        <option <%= @student.major == "Business" ? 'selected="selected"' : '' %> value="Business">Business</option>
+        <option <%= @student.major == "Chemistry" ? 'selected="selected"' : '' %> value="Chemistry">Chemistry</option>
+        <option <%= @student.major == "Computer Engineering & Science" ? 'selected="selected"' : '' %> value="Computer Engineering & Science">Computer Engineering & Science</option>
+        <option <%= @student.major == "Engineering" ? 'selected="selected"' : '' %> value="Engineering">Engineering</option>
+        <option <%= @student.major == "Language" ? 'selected="selected"' : '' %> value="Language">Language</option>
+        <option <%= @student.major == "Law" ? 'selected="selected"' : '' %> value="Law">Law</option>
+        <option <%= @student.major == "Management" ? 'selected="selected"' : '' %> value="Management">Management</option>
+        <option <%= @student.major == "Information Systems" ? 'selected="selected"' : '' %> value="Information Systems">Information Systems</option>
+      </select>
+      <div class="help-block with-errors"></div>
+    <% end %>
+  </div>
+</div>
+<div class="form-group has-feedback">
+  <label for="graduation_year" class="col-sm-4 control-label">Graduation Year</label>
+  <div class="col-sm-8">
+    <% if @mode == 'view' %>
+        <label for="graduation_year" class="control-label"><%= @student.graduation_year %></label>
+    <% else %>
+      <input type="number" name="student[graduation_year]" maxlength="4" class="form-control" id="graduation_year" placeholder="Graduation Year" value="<%= @student.graduation_year %>" required />
+      <div class="help-block with-errors"></div>
+    <% end %>
+  </div>
+</div>
+<div class="form-group has-feedback">
+  <label for="gpa" class="col-sm-4 control-label">GPA</label>
+  <div class="col-sm-8">
+    <% if @mode == 'view' %>
+        <label for="gpa" class="control-label"><%= @student.gpa %></label>
+    <% else %>
+      <input type="number" name="student[gpa]" step="0.1" class="form-control" id="gpa" placeholder="GPA" value="<%= @student.gpa %>" required />
+      <div class="help-block with-errors"></div>
+    <% end %>
+  </div>
+</div>
