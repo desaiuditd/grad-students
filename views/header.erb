@@ -30,6 +30,9 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <ul class="nav navbar-nav">
+          <li <%= request.path_info == '/students' ? 'class="active"' : '' %>><a href="/students">Students</a></li>
+          <li <%= request.path_info == '/about' ? 'class="active"' : '' %>><a href="/about">About</a></li>
+          <li <%= request.path_info == '/contact' ? 'class="active"' : '' %>><a href="/contact">Contact</a></li>
         </ul>
         <div class="login-btn navbar-right">
           <%

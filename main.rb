@@ -16,16 +16,6 @@ configure do
   set :session_secret, 'super grad students secret'
 end
 
-# define db for development environment
-configure :development do
-  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-end
-
-# define db for production (heroku) environment
-configure :production do
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://#{Dir.pwd}/production.db')
-end
-
 # define SCSS template to compile css
 get '/css/:styles.css' do |styles|
   scss :"scss/#{styles}"
@@ -35,10 +25,9 @@ end
 # if not logged in then redirect to login page
 before do
   # print method - POST / GET etc.
-  puts request.request_method
-  # check for authentication
-  if ['/'].include?(request.path_info)
-    puts "checking for authentication"
+  # puts request.request_method
+  # check for authentication. ignore css paths as well
+  unless ['/','/login','/logout','/about','/contact'].include?(request.path_info) or request.path_info.include?('/css/')
     if session[:current_user_auth].nil?
       puts "no user found. so redirect to login"
       redirect '/login'
@@ -64,7 +53,7 @@ post '/login' do
   if email == password
     # save session & redirect
     session[:current_user_auth] = 'user exists'
-    redirect '/'
+    redirect '/students'
   else
     # invalid login. show errors.
   end
@@ -75,6 +64,16 @@ end
 get '/logout' do
   session[:current_user_auth] = nil
   redirect '/login'
+end
+
+# about route
+get '/about' do
+  erb :about
+end
+
+# contact route
+get '/contact' do
+  erb :contact
 end
 
 # define 404 not found route & template

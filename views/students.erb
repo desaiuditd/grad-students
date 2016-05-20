@@ -1,0 +1,16 @@
+<!-- Students List ERB Template -->
+
+<%= erb :header %>
+
+<h1>Students</h1>
+
+<a class="btn btn-primary" href="/student/new">Add Student</a>
+
+<div class="students-container">
+<% if @students.any? %>
+<% else %>
+    <p class="bg-warning">No students have been enrolled yet!</p>
+<% end %>
+</div>
+
+<%= erb :footer %>

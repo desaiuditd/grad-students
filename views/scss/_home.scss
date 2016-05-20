@@ -1,0 +1,23 @@
+.flex-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18%;
+
+  h1 {
+    color: #b9b9b9;
+    font-size: 70px;
+  }
+
+  .blink {
+    color: #d88;
+    font-size: 1.5em;
+    animation: blink-anim 1s ease 0s infinite alternate;
+  }
+
+  @keyframes blink-anim {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+}
