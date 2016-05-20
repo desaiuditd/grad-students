@@ -4,5 +4,10 @@ gem 'sinatra-contrib'
 gem 'sass'
 gem 'dm-core'
 gem 'dm-migrations'
-gem 'dm-sqlite-adapter', :group => :development
-gem 'dm-postgres-adapter', :group => :production
+group :production do
+  gem "dm-postgres-adapter"
+end
+
+group :development, :test do
+  gem "dm-sqlite-adapter"
+end
