@@ -56,6 +56,8 @@ post '/login' do
     redirect '/students'
   else
     # invalid login. show errors.
+    session[:login_error] = "Invalid login credentials. Please try again with same string for Email & Password."
+    redirect '/login'
   end
 
 end

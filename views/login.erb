@@ -8,6 +8,12 @@
 
   <form class="form-horizontal center-block" method="post" action="/login">
     <fieldset>
+      <% if !session[:login_error].nil? %>
+          <p class="bg-danger"><%= session[:login_error] %></p>
+          <% session[:login_error] = nil %>
+      <% else %>
+          <p class="bg-info">Login with same string for Email & Password.</p>
+      <% end %>
       <div class="form-group">
         <label for="inputEmail" class="col-lg-2 control-label">Email</label>
         <div class="col-lg-10">
