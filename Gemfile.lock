@@ -1,8 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.4.0)
-    backports (3.6.8)
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
+    backports (3.12.0)
     data_objects (0.10.17)
       addressable (~> 2.1)
     dm-core (1.2.1)
@@ -22,25 +23,34 @@ GEM
       data_objects (= 0.10.17)
     do_sqlite3 (0.10.17)
       data_objects (= 0.10.17)
-    multi_json (1.12.1)
-    rack (1.6.4)
-    rack-protection (1.5.3)
+    ffi (1.10.0)
+    multi_json (1.13.1)
+    mustermann (1.0.3)
+    public_suffix (3.0.3)
+    rack (2.0.6)
+    rack-protection (2.0.5)
       rack
-    rack-test (0.6.3)
-      rack (>= 1.0)
-    sass (3.4.22)
-    sinatra (1.4.7)
-      rack (~> 1.5)
-      rack-protection (~> 1.4)
-      tilt (>= 1.3, < 3)
-    sinatra-contrib (1.4.7)
-      backports (>= 2.0)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
+    sass (3.7.3)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
+    sinatra-contrib (2.0.5)
+      backports (>= 2.8.2)
       multi_json
-      rack-protection
-      rack-test
-      sinatra (~> 1.4.0)
+      mustermann (~> 1.0)
+      rack-protection (= 2.0.5)
+      sinatra (= 2.0.5)
       tilt (>= 1.3, < 3)
-    tilt (2.0.4)
+    tilt (2.0.9)
 
 PLATFORMS
   ruby
@@ -55,4 +65,4 @@ DEPENDENCIES
   sinatra-contrib
 
 BUNDLED WITH
-   1.12.4
+   1.16.3
